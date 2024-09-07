@@ -74,6 +74,11 @@
     .login-container .reset-password:hover {
         color: #000;
     }
+
+    .error-message {
+        color: red;
+        margin: 10px 0;
+    }
     </style>
 </head>
 
@@ -81,6 +86,15 @@
     <div class="login-container">
         <img src="{{ asset('images/logouninassau.png') }}" alt="Logo">
         <h1>Agendamento de Salas e Recursos</h1>
+
+        @if ($errors->any())
+        <div class="error-message">
+            @foreach ($errors->all() as $error)
+            <p>{{ $error }}</p>
+            @endforeach
+        </div>
+        @endif
+
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <input type="email" name="email" placeholder="Email" required autofocus>

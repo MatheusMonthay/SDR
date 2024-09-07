@@ -31,9 +31,6 @@ class LoginController extends Controller
             } elseif ($role === 'professor') {
                 return redirect()->route('professor.dashboard');
             }
-        } else {
-            // Verifica se a autenticação falhou
-            dd('Autenticação falhou. Verifique as credenciais.');
         }
     
         // Retorna com erro se a autenticação falhar
